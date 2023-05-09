@@ -1,0 +1,32 @@
+.task-button {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 20px 10px 0;
+  display: grid;
+  place-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: #F15412;
+  z-index: 1;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.task-button:hover {
+  transform: scale(1.1);
+  background-color: #ff3600;
+}
+
+.task-button .task-addIcon {
+  color: #F3EFE0;
+  width: 25px;
+  height: 25px;
+  transition: .5s;
+}
+
+.task-button .task-addIcon:hover {
+  transform: scale(1.1);
+}
