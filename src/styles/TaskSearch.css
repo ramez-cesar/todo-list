@@ -1,0 +1,38 @@
+.task-form {
+  margin: 0 auto 10px;
+}
+
+.task-searchSpan {
+  height: 46px;
+  position: absolute;
+  display: grid;
+  place-content: center;
+  padding-left: 10px;
+}
+
+.task-searchIcon {
+  color: #a09f9d;
+}
+
+.task-searchInput {
+  width: 100%;
+  padding: 14px 10px 14px 40px;
+  background-color: #303030;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: #F3EFE0;
+  letter-spacing: .2px;
+  word-spacing: 1px;
+}
+
+.task-searchInput::placeholder {
+  color: #a09f9d;
+}
+
+.task-searchInput:focus {
+  transition: 1s;
+  outline: 1px solid #048d7f;
+}
