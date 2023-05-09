@@ -1,0 +1,59 @@
+.task-li {
+  list-style: none;
+  padding: 18px 10px;
+  background-color: #303030;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-completedSpan, .task-deleteSpan {
+  display: grid;
+  place-content: center;
+}
+
+.task-completedSpan .task-completedIcon {
+  color: #a09f9d;
+  transition: .5s;
+}
+
+.task-completedSpan .task-completedIcon:hover {
+  color: #00d0ef;
+  cursor: pointer;
+}
+
+.task-containerText {
+  width: 100%;
+  max-width: 335px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: start;
+}
+
+.task-text {
+  color: #F3EFE0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: .2px;
+  word-spacing: 1px;
+}
+
+.task-deleteSpan .task-deletedIcon {
+  color: #F96666;
+  transition: .5s;
+}
+
+.task-deleteSpan .task-deletedIcon:hover {
+  color: #FF1E00;
+  cursor: pointer;
+}
+
+.task-li > .Check-completed .task-completedIcon {
+  color: #00FFF6;
+}
+
+.task-containerText > .Check-completed {
+  color: #FFDD93;
+  text-decoration: line-through;
+}
