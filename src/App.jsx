@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TaskCounter from './components/TaskCounter'
 import TaskSearch from './components/TaskSearch'
 import TaskList from './components/TaskList'
@@ -12,10 +12,13 @@ const fakeTask = [
   { task: 'Ver curso de React: Patrones de render', completed: false }
 ]
 
+const totalTask = fakeTask.length
+const completedTask = fakeTask.filter(task => task.completed === true).length
+
 function App () {
   return (
     <div className='App'>
-      <TaskCounter />
+      <TaskCounter totalTask={totalTask} completedTask={completedTask} />
       <TaskSearch />
       <TaskList>
         {
