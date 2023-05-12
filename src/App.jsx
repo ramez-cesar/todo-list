@@ -16,13 +16,20 @@ const totalTask = fakeTask.length
 const completedTask = fakeTask.filter(task => task.completed === true).length
 
 function App () {
+  const [search, setSearch] = useState('')
+
+  const searchList = fakeTask.filter(task => {
+    const taskList = task.task.toLocaleLowerCase()
+    return taskList.includes(search.toLocaleLowerCase())
+  })
+
   return (
     <div className='App'>
       <TaskCounter totalTask={totalTask} completedTask={completedTask} />
-      <TaskSearch />
+      <TaskSearch search={search} setSearch={setSearch} />
       <TaskList>
         {
-          fakeTask.map(({ task }) => (
+          searchList.map(({ task }) => (
             <TaskItem key={task} task={task} />
           ))
         }
