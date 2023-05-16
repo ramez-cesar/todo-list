@@ -7,7 +7,10 @@ export default function TaskItem ({ task, completed, taskCompleted, deleteTask }
 
   return (
     <li className='task-li'>
-      <span className={`task-completedSpan ${markCompleted}`} onClick={taskCompleted}>
+      <span
+        className={`task-completedSpan ${markCompleted}`}
+        onClick={taskCompleted}
+      >
         <IconCircleCheck className='task-completedIcon' />
       </span>
 
@@ -19,7 +22,10 @@ export default function TaskItem ({ task, completed, taskCompleted, deleteTask }
         </p>
       </div>
 
-      <span className='task-deleteSpan' onClick={deleteTask}>
+      <span
+        className='task-deleteSpan'
+        onClick={deleteTask}
+      >
         <IconTrash className='task-deletedIcon' />
       </span>
     </li>
