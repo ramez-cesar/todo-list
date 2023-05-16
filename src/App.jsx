@@ -34,6 +34,14 @@ function App () {
     setTasks(copyTaskList)
   }
 
+  const deleteTask = (taskText) => {
+    const findTask = tasks.findIndex(task => task.task === taskText)
+    const copyTaskList = [...tasks]
+    copyTaskList.splice(findTask, 1)
+
+    setTasks(copyTaskList)
+  }
+
   const totalTask = tasks.length
   const completedTask = tasks.filter(task => task.completed === true).length
 
@@ -49,6 +57,7 @@ function App () {
               task={task}
               completed={completed}
               taskCompleted={() => markCompleted(task)}
+              deleteTask={() => deleteTask(task)}
             />
           ))
         }
