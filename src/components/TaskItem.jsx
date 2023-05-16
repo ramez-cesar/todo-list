@@ -2,7 +2,7 @@ import React from 'react'
 import { IconCircleCheck, IconTrash } from '@tabler/icons-react'
 import '../styles/TaskItem.css'
 
-export default function TaskItem ({ task, completed, taskCompleted }) {
+export default function TaskItem ({ task, completed, taskCompleted, deleteTask }) {
   const markCompleted = completed ? 'Check-completed' : ''
 
   return (
@@ -19,7 +19,7 @@ export default function TaskItem ({ task, completed, taskCompleted }) {
         </p>
       </div>
 
-      <span className='task-deleteSpan'>
+      <span className='task-deleteSpan' onClick={deleteTask}>
         <IconTrash className='task-deletedIcon' />
       </span>
     </li>
