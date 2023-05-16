@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react'
 import TaskCounter from './components/TaskCounter'
 import TaskSearch from './components/TaskSearch'
@@ -6,15 +7,20 @@ import TaskItem from './components/TaskItem'
 import TaskButton from './components/TaskButton'
 import './styles/App.css'
 
-const fakeTask = [
-  { task: 'Ver curso de Vite', completed: true },
-  { task: 'Ver curso de React', completed: false },
-  { task: 'Ver curso de React: Patrones de render', completed: false }
-]
-
 function App () {
+  // Variable que guarda el valor parseado de los datos en LS (si existen) o es un array en su valor por defecto
+  let parseItem
+  const getLocalStorageTasks = localStorage.getItem('TASK_LIST_V1')
+
+  if (!getLocalStorageTasks) {
+    localStorage.setItem('TASK_LIST_V1', JSON.stringify([]))
+    parseItem = []
+  } else {
+    parseItem = JSON.parse(getLocalStorageTasks)
+  }
+
   const [search, setSearch] = useState('')
-  const [tasks, setTasks] = useState(fakeTask)
+  const [tasks, setTasks] = useState(parseItem)
 
   const searchList = tasks.filter(task => {
     const taskList = task.task.toLocaleLowerCase()
