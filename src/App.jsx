@@ -5,10 +5,10 @@ import './styles/App.css'
 function App () {
   // Variable que guarda el valor parseado de los datos en LS (si existen) o es un array en su valor por defecto
   let parseItem
-  const getLocalStorageTasks = localStorage.getItem('TASK_LIST_V1')
+  const getLocalStorageTasks = window.localStorage.getItem('TASK_LIST_V1')
 
   if (!getLocalStorageTasks) {
-    localStorage.setItem('TASK_LIST_V1', JSON.stringify([]))
+    window.localStorage.setItem('TASK_LIST_V1', JSON.stringify([]))
     parseItem = []
   } else {
     parseItem = JSON.parse(getLocalStorageTasks)
@@ -26,7 +26,7 @@ function App () {
   const saveTasks = (newTaskList) => {
     // El array que recibe lo convierte en String para poder guardar los datos en LS
     const newList = JSON.stringify(newTaskList)
-    localStorage.setItem('TASK_LIST_V1', newList)
+    window.localStorage.setItem('TASK_LIST_V1', newList)
 
     /**
      * Se actualiza el estado con el array que recibe como argumento
