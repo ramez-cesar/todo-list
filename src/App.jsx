@@ -27,6 +27,19 @@ function App () {
     return taskList.includes(search.toLocaleLowerCase())
   })
 
+  // Función que guarda datos en LS a partir de un array
+  const saveTasks = (newTaskList) => {
+    // El array que recibe lo convierte en String para poder guardar los datos en LS
+    const newList = JSON.stringify(newTaskList)
+    localStorage.setItem('TASK_LIST_V1', newList)
+
+    /**
+     * Se actualiza el estado con el array que recibe como argumento
+     * No se envía a newList por que esta variable se encarga se convertir el array en String únicamente con el fin de guardar los datos en LS.
+     */
+    setTasks(newTaskList)
+  }
+
   const markCompleted = (taskText) => {
     const findTask = tasks.findIndex(task => task.task === taskText)
     const copyTaskList = [...tasks]
@@ -37,7 +50,7 @@ function App () {
       copyTaskList[findTask].completed = true
     }
 
-    setTasks(copyTaskList)
+    saveTasks(copyTaskList)
   }
 
   const deleteTask = (taskText) => {
@@ -45,7 +58,7 @@ function App () {
     const copyTaskList = [...tasks]
     copyTaskList.splice(findTask, 1)
 
-    setTasks(copyTaskList)
+    saveTasks(copyTaskList)
   }
 
   const totalTask = tasks.length
