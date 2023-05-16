@@ -1,10 +1,5 @@
-/* eslint-disable no-undef */
 import React, { useState } from 'react'
-import TaskCounter from './components/TaskCounter'
-import TaskSearch from './components/TaskSearch'
-import TaskList from './components/TaskList'
-import TaskItem from './components/TaskItem'
-import TaskButton from './components/TaskButton'
+import AppUI from './components/AppUI'
 import './styles/App.css'
 
 function App () {
@@ -65,24 +60,15 @@ function App () {
   const completedTask = tasks.filter(task => task.completed === true).length
 
   return (
-    <div className='App'>
-      <TaskCounter totalTask={totalTask} completedTask={completedTask} />
-      <TaskSearch search={search} setSearch={setSearch} />
-      <TaskList>
-        {
-          searchList.map(({ task, completed }) => (
-            <TaskItem
-              key={task}
-              task={task}
-              completed={completed}
-              taskCompleted={() => markCompleted(task)}
-              deleteTask={() => deleteTask(task)}
-            />
-          ))
-        }
-      </TaskList>
-      <TaskButton />
-    </div>
+    <AppUI
+      totalTask={totalTask}
+      completedTask={completedTask}
+      search={search}
+      setSearch={setSearch}
+      searchList={searchList}
+      markCompleted={markCompleted}
+      deleteTask={deleteTask}
+    />
   )
 }
 
