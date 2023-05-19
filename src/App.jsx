@@ -2,38 +2,47 @@ import React, { useState } from 'react'
 import AppUI from './components/AppUI'
 import './styles/App.css'
 
-function App () {
+function useLocalStorage (itemName, initialValue) {
   // Variable que guarda el valor parseado de los datos en LS (si existen) o es un array en su valor por defecto
   let parseItem
-  const getLocalStorageTasks = window.localStorage.getItem('TASK_LIST_V1')
+  const localStorageItem = window.localStorage.getItem(itemName)
 
-  if (!getLocalStorageTasks) {
-    window.localStorage.setItem('TASK_LIST_V1', JSON.stringify([]))
-    parseItem = []
+  if (!localStorageItem) {
+    window.localStorage.setItem(itemName, JSON.stringify(initialValue))
+    parseItem = initialValue
   } else {
-    parseItem = JSON.parse(getLocalStorageTasks)
+    parseItem = JSON.parse(localStorageItem)
   }
 
-  const [search, setSearch] = useState('')
-  const [tasks, setTasks] = useState(parseItem)
-
-  const searchList = tasks.filter(task => {
-    const taskList = task.task.toLocaleLowerCase()
-    return taskList.includes(search.toLocaleLowerCase())
-  })
+  const [item, setItem] = useState(parseItem)
 
   // Función que guarda datos en LS a partir de un array
-  const saveTasks = (newTaskList) => {
+  const saveItem = (newItemList) => {
     // El array que recibe lo convierte en String para poder guardar los datos en LS
-    const newList = JSON.stringify(newTaskList)
-    window.localStorage.setItem('TASK_LIST_V1', newList)
+    const newList = JSON.stringify(newItemList)
+    window.localStorage.setItem(itemName, newList)
 
     /**
      * Se actualiza el estado con el array que recibe como argumento
      * No se envía a newList por que esta variable se encarga se convertir el array en String únicamente con el fin de guardar los datos en LS.
      */
-    setTasks(newTaskList)
+    setItem(newItemList)
   }
+
+  return [
+    item,
+    saveItem
+  ]
+}
+
+function App () {
+  const [tasks, saveTasks] = useLocalStorage('TASK_LIST_V1', [])
+  const [search, setSearch] = useState('')
+
+  const searchList = tasks.filter(task => {
+    const taskList = task.task.toLocaleLowerCase()
+    return taskList.includes(search.toLocaleLowerCase())
+  })
 
   const markCompleted = (taskText) => {
     const findTask = tasks.findIndex(task => task.task === taskText)
