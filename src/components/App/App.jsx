@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import useLocalStorage from '../Hooks/useLocalStorage'
+import useLocalStorage from '../../Hooks/useLocalStorage/useLocalStorage'
 import AppUI from './AppUI'
 import './App.css'
 
 function App () {
-  const [tasks, saveTasks] = useLocalStorage('TASK_LIST_V1', [])
+  // Se reciben y renombran (item y saveItem) los valores retornados del Custom Hook
+  const { item: tasks, saveItem: saveTasks, loading, error } = useLocalStorage('TASK_LIST_V1', [])
   const [search, setSearch] = useState('')
 
   const searchList = tasks.filter(task => {
@@ -38,6 +39,8 @@ function App () {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTask={totalTask}
       completedTask={completedTask}
       search={search}
