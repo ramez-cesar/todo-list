@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconPlus } from '@tabler/icons-react'
-import '../styles/TaskButton.css'
+import './TaskButton.css'
 
 export default function TaskButton () {
   return (

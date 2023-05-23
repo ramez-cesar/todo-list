@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconCircleCheck, IconTrash } from '@tabler/icons-react'
-import '../styles/TaskItem.css'
+import './TaskItem.css'
 
 export default function TaskItem ({ task, completed, taskCompleted, deleteTask }) {
   const markCompleted = completed ? 'Check-completed' : ''

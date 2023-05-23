@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import AppUI from './components/AppUI'
-import './styles/App.css'
+import AppUI from './AppUI'
+import './App.css'
 
 function useLocalStorage (itemName, initialValue) {
   // Variable que guarda el valor parseado de los datos en LS (si existen) o es un array en su valor por defecto
@@ -24,7 +24,7 @@ function useLocalStorage (itemName, initialValue) {
 
     /**
      * Se actualiza el estado con el array que recibe como argumento
-     * No se envía a newList por que esta variable se encarga se convertir el array en String únicamente con el fin de guardar los datos en LS.
+     * No se envía a newList por que esta variable se encarga de convertir el array en String únicamente con el fin de guardar los datos en LS.
      */
     setItem(newItemList)
   }

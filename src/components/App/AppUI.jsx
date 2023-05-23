@@ -1,9 +1,9 @@
 import React from 'react'
-import TaskCounter from './TaskCounter'
-import TaskSearch from './TaskSearch'
-import TaskList from './TaskList'
-import TaskItem from './TaskItem'
-import TaskButton from './TaskButton'
+import TaskCounter from '../TaskCounter/TaskCounter'
+import TaskSearch from '../TaskSearch/TaskSearch'
+import TaskList from '../TaskList/TaskList'
+import TaskItem from '../TaskItem/TaskItem'
+import TaskButton from '../TaskButton/TaskButton'
 
 export default function AppUI ({
   totalTask,
