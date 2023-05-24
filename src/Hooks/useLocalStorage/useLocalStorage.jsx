@@ -31,7 +31,7 @@ export default function useLocalStorage (itemName, initialValue) {
         setError(true)
       }
     }, 2500)
-  })
+  }, [])
 
   // Función que guarda datos en LS a partir de un array
   const saveItem = (newItemList) => {
