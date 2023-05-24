@@ -1,5 +1,6 @@
 .task-container {
   padding: 20px 0 50px;
+  animation: showTask 1.5s 2.5s;
 }
 
 .task-ul {
@@ -12,4 +13,15 @@
   color: #F3EFE0;
   font-size: 1.4rem;
   text-align: center;
+}
+
+/* Animation */
+
+@keyframes showTask {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
