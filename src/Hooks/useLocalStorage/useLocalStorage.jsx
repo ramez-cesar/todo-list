@@ -30,7 +30,7 @@ export default function useLocalStorage (itemName, initialValue) {
         // Se actualiza el valor del estado cuando exista un error
         setError(true)
       }
-    }, 2000)
+    }, 2500)
   })
 
   // Función que guarda datos en LS a partir de un array
