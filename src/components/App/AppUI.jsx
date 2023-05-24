@@ -21,10 +21,22 @@ export default function AppUI ({
       <TaskCounter totalTask={totalTask} completedTask={completedTask} />
       <TaskSearch search={search} setSearch={setSearch} />
       <TaskList>
-        {/* Si "variable" es = true, muestra el texto, si no, devuelve null */}
-        {loading ? <p className='message msg-loading'>Cargando tareas...</p> : null}
-        {error ? <p className='message msg-error'>Hubo un error, intenta otra vez...</p> : null}
-        {(!loading && searchList.length === 0) ? <p className='message msg-empty'>No tienes ninguna tarea creada.</p> : null}
+        {
+          // si "variable" = true, agrega un texto, si no, agrega "null"
+          loading
+            ? <p className='message msg-loading'><span className='loader' /> Cargando tareas...</p>
+            : null
+        }
+        {
+          error
+            ? <p className='message msg-error'>Hubo un error, intenta otra vez...</p>
+            : null
+        }
+        {
+          (!loading && searchList.length === 0)
+            ? <p className='message msg-empty'>No tienes ninguna tarea creada.</p>
+            : null
+        }
 
         {
           searchList.map(({ task, completed }) => (
