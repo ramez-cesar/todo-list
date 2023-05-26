@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IconSearch } from '@tabler/icons-react'
+import { TaskContext } from '../../contexts/TaskProvider/TaskProvider'
 import './TaskSearch.css'
 
-export default function TaskSearch ({ search, setSearch }) {
+export default function TaskSearch () {
+  const { search, setSearch } = useContext(TaskContext)
+
   const getValueInput = (e) => {
     const value = e.target.value
     setSearch(value)
