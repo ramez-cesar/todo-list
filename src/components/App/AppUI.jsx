@@ -1,25 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TaskCounter from '../TaskCounter/TaskCounter'
 import TaskSearch from '../TaskSearch/TaskSearch'
 import TaskList from '../TaskList/TaskList'
 import TaskItem from '../TaskItem/TaskItem'
 import TaskButton from '../TaskButton/TaskButton'
+import { TaskContext } from '../../contexts/TaskProvider/TaskProvider'
 
-export default function AppUI ({
-  loading,
-  error,
-  totalTask,
-  completedTask,
-  search,
-  setSearch,
-  searchList,
-  markCompleted,
-  deleteTask
-}) {
+export default function AppUI () {
+  const {
+    loading,
+    error,
+    searchList,
+    markCompleted,
+    deleteTask
+  } = useContext(TaskContext)
+
   return (
     <div className='App'>
-      <TaskCounter totalTask={totalTask} completedTask={completedTask} />
-      <TaskSearch search={search} setSearch={setSearch} />
+      <TaskCounter />
+      <TaskSearch />
       <TaskList>
         {
           // si "variable" = true, agrega un texto, si no, agrega "null"
