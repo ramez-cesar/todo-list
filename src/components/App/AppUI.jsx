@@ -4,6 +4,7 @@ import TaskSearch from '../TaskSearch/TaskSearch'
 import TaskList from '../TaskList/TaskList'
 import TaskItem from '../TaskItem/TaskItem'
 import TaskButton from '../TaskButton/TaskButton'
+import Modal from '../Modal/Modal'
 import { TaskContext } from '../../contexts/TaskProvider/TaskProvider'
 
 export default function AppUI () {
@@ -49,6 +50,9 @@ export default function AppUI () {
           ))
         }
       </TaskList>
+
+      <Modal />
+
       <TaskButton />
     </div>
   )
