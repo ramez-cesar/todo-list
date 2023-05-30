@@ -1,0 +1,84 @@
+.form-modal {
+  width: 90%;
+  max-width: 382px;
+  height: auto;
+  padding: 40px 30px 60px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #303030;
+  box-shadow: 0px 0px 6px 0px #0074bf;
+}
+
+.form-textArea {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 180px;
+  min-height: 80px;
+  height: 80px;
+  padding: 15px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .2px;
+  background-color: #464646;
+  color: white;
+}
+
+.form-textArea:focus {
+  transition: 1s;
+  outline: 1px solid #12acaf;
+}
+
+.form-textArea::placeholder {
+  color: #a09f9d;
+  font-family: inherit;
+  letter-spacing: .2px;
+}
+
+.form-buttonsContainer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttonsContainer button {
+  width: 120px;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  letter-spacing: .2px;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.form-buttonsContainer button:first-child {
+  color: black;
+  background-color: #c5c5c5;
+}
+
+.form-buttonsContainer button:first-child:hover {
+  background-color: #efefef;
+}
+
+.form-buttonsContainer button:last-child {
+  color: white;
+  background-color: #4E6E81;
+}
+
+.form-buttonsContainer button:last-child:hover {
+  background-color: #127e9b;
+}
+
+.empty-task-message {
+  position: absolute;
+  padding: 0 30px;
+  margin-top: 12px;
+  color: #ff3838;
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: .5px;
+  left: 8px;
+}
