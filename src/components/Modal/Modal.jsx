@@ -9,6 +9,7 @@ export default function Modal () {
 
   return (
     <>
+      {/* Si openModal = true, entonces crea un portal con el componente TaskForm */}
       {openModal && createPortal(
         <div className='modal-container'>
           <TaskForm />
