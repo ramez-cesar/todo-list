@@ -1,10 +1,8 @@
-import React, { useContext, useState } from 'react'
-import { TaskContext } from '../../contexts/TaskProvider/TaskProvider'
+import React, { useState } from 'react'
 import './TaskForm.css'
 
-export default function TaskForm () {
+export default function TaskForm ({ setOpenModal, addTask }) {
   const [newTask, setNewTask] = useState('')
-  const { setOpenModal, addTask } = useContext(TaskContext)
 
   const addNewTask = (e) => {
     e.preventDefault()
