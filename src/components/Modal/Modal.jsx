@@ -1,18 +1,13 @@
-import { useContext } from 'react'
 import { createPortal } from 'react-dom'
-import { TaskContext } from '../../contexts/TaskProvider/TaskProvider'
-import TaskForm from '../TaskForm/TaskForm'
 import './Modal.css'
 
-export default function Modal () {
-  const { openModal } = useContext(TaskContext)
-
+export default function Modal ({ children, openModal }) {
   return (
     <>
-      {/* Si openModal = true, entonces crea un portal con el componente TaskForm */}
+      {/* Si openModal = true, crea un portal con el componente que se envie como children */}
       {openModal && createPortal(
         <div className='modal-container'>
-          <TaskForm />
+          {children}
         </div>,
         document.getElementById('modal')
       )}

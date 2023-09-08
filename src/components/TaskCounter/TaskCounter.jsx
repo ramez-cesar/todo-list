@@ -1,10 +1,7 @@
-import React, { useContext } from 'react'
-import { TaskContext } from '../../contexts/TaskProvider/TaskProvider'
+import React from 'react'
 import './TaskCounter.css'
 
-export default function TaskCounter () {
-  const { completedTask, totalTask } = useContext(TaskContext)
-
+export default function TaskCounter ({ completedTask, totalTask }) {
   return (
     <h1 className='task-counter'>
       Haz completado {completedTask} de {totalTask} tareas.

@@ -1,9 +1,7 @@
-import React, { useState, createContext } from 'react'
-import useLocalStorage from '../../Hooks/useLocalStorage/useLocalStorage'
+import { useState } from 'react'
+import useLocalStorage from '../useLocalStorage'
 
-const TaskContext = createContext(null)
-
-function TaskProvider ({ children }) {
+export default function UseTask () {
   // Se reciben y renombran (item y saveItem) los valores retornados del Custom Hook
   const { item: tasks, saveItem: saveTasks, loading, error } = useLocalStorage('TASK_LIST_V1', [])
 
@@ -52,27 +50,18 @@ function TaskProvider ({ children }) {
   const totalTask = tasks.length
   const completedTask = tasks.filter(task => task.completed === true).length
 
-  return (
-    <TaskContext.Provider value={{
-      loading,
-      error,
-      search,
-      setSearch,
-      openModal,
-      setOpenModal,
-      searchList,
-      addTask,
-      markCompleted,
-      deleteTask,
-      totalTask,
-      completedTask
-    }}
-    >
-      {
-        children
-      }
-    </TaskContext.Provider>
-  )
+  return {
+    loading,
+    error,
+    search,
+    setSearch,
+    openModal,
+    setOpenModal,
+    searchList,
+    addTask,
+    markCompleted,
+    deleteTask,
+    totalTask,
+    completedTask
+  }
 }
-
-export { TaskContext, TaskProvider }

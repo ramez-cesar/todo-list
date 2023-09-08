@@ -1,10 +1,13 @@
 # todo-list
 
-### Application to create to-do lists. You can mark the ones you have completed and/or delete them.
+Esta aplicación es un proyecto construido con React Js. Entre sus funciones está agregar tareas, marcarlas como completadas, eliminar y buscar tareas. La aplicación en sí ya es completamente funcional, aunque el código aún está recibiendo mejoras a modo de hacerlo escalable.
+
+Algunas de las técnicas usadas en esta aplicación son: `useState`, `useContext`, `useEffect`, `Custom Hooks`, `React Hooks`, `Portals`, entre otras. Mientras que para la organización de archivos se usó el Fyle type. 
+El diseño fue una idea original construido en Figma.
 
 
 ## Author
-- [César Ramez](mailto:cesarramez8@gmail.com)
+- [César Ramez](https://ramez-cesar.github.io/blog/)
 - [Dev.to](https://dev.to/ramez_cesar)
 - [Twitter](https://twitter.com/ramez_cesar)
 - [Codepen](https://codepen.io/ramez-cesar)
